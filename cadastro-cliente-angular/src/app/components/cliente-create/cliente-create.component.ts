@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ClienteService } from '../../services/cliente.service';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'app-cliente-create',
   templateUrl: './cliente-create.component.html',
   styleUrls: ['./cliente-create.component.css'],
-  imports: [RouterLink, FormsModule]
+  imports: [RouterLink, CommonModule, FormsModule, NgxMaskDirective],
+  providers: [provideNgxMask()] 
 })
 export class ClienteCreateComponent {
   cliente = {

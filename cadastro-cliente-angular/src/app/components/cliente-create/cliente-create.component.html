@@ -7,16 +7,41 @@
     </div>
     <div class="col-md-6">
       <label for="email" class="form-label">E-mail</label>
-      <input type="email" id="email" [(ngModel)]="cliente.email" name="email" class="form-control" required />
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="cliente.email"
+        name="email"
+        class="form-control"
+        [ngClass]="{'is-invalid': email.invalid && email.touched, 'is-valid': email.valid && email.touched}"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        #email="ngModel"
+      />
     </div>
     <div class="col-md-6">
       <label for="telefone" class="form-label">Telefone</label>
-      <input type="text" id="telefone" [(ngModel)]="cliente.telefone" name="telefone" class="form-control" maxlength="15" />
+      <input
+        type="text"
+        id="telefone"
+        [(ngModel)]="cliente.telefone"
+        name="telefone"
+        class="form-control"
+        mask="(00) 00000-0000"
+      />
     </div>
     <div class="col-md-6">
       <label for="cep" class="form-label">CEP</label>
       <div class="input-group">
-        <input type="text" id="cep" [(ngModel)]="cliente.cep" name="cep" class="form-control" maxlength="9" required />
+        <input
+          type="text"
+          id="cep"
+          [(ngModel)]="cliente.cep"
+          name="cep"
+          class="form-control"
+          mask="00000-000"
+          required
+        />
         <button type="button" class="btn btn-secondary" (click)="buscarEndereco()">Buscar Endereço</button>
       </div>
     </div>
@@ -37,7 +62,7 @@
       <input type="text" id="estado" [(ngModel)]="cliente.estado" name="estado" class="form-control" readonly />
     </div>
     <div class="col-12 text-center">
-      <button type="button" class="btn btn-secondary" [routerLink]="'/clientes'">Voltar</button>
+      <button type="button" class="btn btn-secondary me-2" [routerLink]="'/clientes'">Voltar</button>
       <button type="submit" class="btn btn-primary">Salvar</button>
     </div>
   </form>

@@ -10,7 +10,7 @@
         />
       </div>
       <div class="col-md-3 text-end">
-        <button class="btn btn-primary" (click)="buscarClientes()">Buscar</button>
+        <button class="btn btn-primary me-2" (click)="buscarClientes()">Buscar</button>
         <button class="btn btn-secondary" (click)="limparBusca()">Limpar</button>
       </div>
     </div>
@@ -32,11 +32,11 @@
           <td>{{ cliente.id }}</td>
           <td>{{ cliente.nome }}</td>
           <td>{{ cliente.email }}</td>
-          <td>{{ cliente.telefone }}</td>
-          <td>{{ cliente.cep }}</td>
+          <td>{{ cliente.telefone | telefone }}</td>
+          <td>{{ cliente.cep | cep }}</td>
           <td>{{ cliente.endereco }}</td>
           <td>
-            <button class="btn btn-warning btn-sm" [routerLink]="['/clientes/editar', cliente.id]">Editar</button>
+            <button class="btn btn-warning btn-sm me-2" [routerLink]="['/clientes/editar', cliente.id]">Editar</button>
             <button class="btn btn-danger btn-sm" (click)="excluirCliente(cliente.id)">Excluir</button>
           </td>
         </tr>

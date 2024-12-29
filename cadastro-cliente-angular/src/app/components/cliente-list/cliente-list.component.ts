@@ -3,12 +3,14 @@ import { ClienteService } from '../../services/cliente.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TelefonePipe } from '../../pipes/telefone.pipe';
+import { CepPipe } from '../../pipes/cep.pipe';
 
 @Component({
   selector: 'app-cliente-list', 
   standalone: true,
   templateUrl: './cliente-list.component.html',
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, TelefonePipe, CepPipe],
 })
 export class ClienteListComponent implements OnInit {
   nome: string = '';

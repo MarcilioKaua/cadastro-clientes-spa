@@ -3,13 +3,15 @@ import { ClienteService } from '../../services/cliente.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';  
 import { CommonModule } from '@angular/common';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   standalone: true,
   selector: 'app-cliente-edit',
   templateUrl: './cliente-edit.component.html',
   styleUrls: ['./cliente-edit.component.css'],
-  imports: [ReactiveFormsModule, RouterLink, CommonModule]  
+  imports: [ReactiveFormsModule, RouterLink, CommonModule, NgxMaskDirective],
+  providers: [provideNgxMask()]
 })
 export class ClienteEditComponent implements OnInit {
   clienteId!: number;
