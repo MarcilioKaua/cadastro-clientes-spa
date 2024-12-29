@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Lista de Clientes</h2>
+    <div class="row g-3 mb-3">
+      <div class="col-md-9">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="nome"
+          placeholder="Digite o nome do cliente"
+        />
+      </div>
+      <div class="col-md-3 text-end">
+        <button class="btn btn-primary" (click)="buscarClientes()">Buscar</button>
+        <button class="btn btn-secondary" (click)="limparBusca()">Limpar</button>
+      </div>
+    </div>
+  
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+          <th>CEP</th>
+          <th>Endereço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.id }}</td>
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.telefone }}</td>
+          <td>{{ cliente.cep }}</td>
+          <td>{{ cliente.endereco }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" [routerLink]="['/clientes/editar', cliente.id]">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="excluirCliente(cliente.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <button class="btn btn-success" [routerLink]="'/clientes/novo'">Novo Cliente</button>
+    </div>
+  </div>
+  

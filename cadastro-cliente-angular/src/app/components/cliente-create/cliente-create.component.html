@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Cadastrar Cliente</h2>
+  <form (ngSubmit)="salvarCliente()" class="row g-3">
+    <div class="col-md-6">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" id="nome" [(ngModel)]="cliente.nome" name="nome" class="form-control" required />
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" id="email" [(ngModel)]="cliente.email" name="email" class="form-control" required />
+    </div>
+    <div class="col-md-6">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text" id="telefone" [(ngModel)]="cliente.telefone" name="telefone" class="form-control" maxlength="15" />
+    </div>
+    <div class="col-md-6">
+      <label for="cep" class="form-label">CEP</label>
+      <div class="input-group">
+        <input type="text" id="cep" [(ngModel)]="cliente.cep" name="cep" class="form-control" maxlength="9" required />
+        <button type="button" class="btn btn-secondary" (click)="buscarEndereco()">Buscar Endereço</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="endereco" class="form-label">Endereço</label>
+      <input type="text" id="endereco" [(ngModel)]="cliente.endereco" name="endereco" class="form-control" readonly />
+    </div>
+    <div class="col-md-6">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input type="text" id="bairro" [(ngModel)]="cliente.bairro" name="bairro" class="form-control" readonly />
+    </div>
+    <div class="col-md-6">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" id="cidade" [(ngModel)]="cliente.cidade" name="cidade" class="form-control" readonly />
+    </div>
+    <div class="col-md-6">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" id="estado" [(ngModel)]="cliente.estado" name="estado" class="form-control" readonly />
+    </div>
+    <div class="col-12 text-center">
+      <button type="button" class="btn btn-secondary" [routerLink]="'/clientes'">Voltar</button>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>
